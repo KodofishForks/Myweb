@@ -26,16 +26,12 @@ namespace Myweb.Controllers
         public IActionResult AddUser(IFormCollection fc)
         {
             string name = fc["name"];
-            DateTime birthday = DateTime.Parse(fc["birthday"]);
-            string telephone = fc["telephone"];
             string account = fc["account"];
             string password = fc["password"];
             BlockchainContext db = new BlockchainContext();
             User user = new User
             {
                 Name = name,
-                Birthday = birthday,
-                Telephone = telephone,
                 Account = account,
                 Password = password,
             };
@@ -79,8 +75,6 @@ namespace Myweb.Controllers
         public IActionResult UserEditPost(IFormCollection fc) {
             int id = int.Parse(fc["id"]);
             string name = fc["name"];
-            //DateTime birthday = DateTime.Parse(fc["birthday"]);
-            string telephone = fc["telephone"];
             string account = fc["account"];
             string password = fc["password"];
 
@@ -90,8 +84,6 @@ namespace Myweb.Controllers
             
 
             res.Name = name;
-            //res.Birthday = birthday;
-            res.Telephone = telephone;
             res.Account = account;
             res.Password = password;
 
